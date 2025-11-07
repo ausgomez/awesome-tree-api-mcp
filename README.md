@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/ausgomez/awesome-tree-api/blob/main/src/assets/tree.png?raw=true" width="200" alt="Awesome Tree Logo" />
+    <img src="https://github.com/ausgomez/awesome-tree-api/blob/main/src/assets/tree.png?raw=true" width="" alt="Awesome Tree Logo" />
 </p>
 
 ## Description
