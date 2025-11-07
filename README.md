@@ -6,7 +6,7 @@
 
 A production-ready REST API for managing hierarchical tree data structures, featuring comprehensive CRUD operations and showcasing Model Context Protocol (MCP) integration capabilities.
 
-Features
+## Features
 ✅ Create and manage tree nodes with parent-child relationships
 ✅ RESTful API endpoints
 ✅ Input validation and error handling
