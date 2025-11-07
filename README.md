@@ -7,13 +7,13 @@
 A production-ready REST API for managing hierarchical tree data structures, featuring comprehensive CRUD operations and showcasing Model Context Protocol (MCP) integration capabilities.
 
 ## Features
-✅ Create and manage tree nodes with parent-child relationships
-✅ RESTful API endpoints
-✅ Input validation and error handling
-✅ PostgreSQL database with Docker
-✅ Interactive API documentation (Swagger)
-✅ Comprehensive test coverage
-✅ TypeScript for type safety
+- ✅ Create and manage tree nodes with parent-child relationships
+- ✅ RESTful API endpoints
+- ✅ Input validation and error handling
+- ✅ PostgreSQL database with Docker
+- ✅ Interactive API documentation (Swagger)
+- ✅ Comprehensive test coverage
+- ✅ TypeScript for type safety
 
 ## Prerequisites
 Make sure you have these installed:
