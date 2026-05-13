@@ -12,6 +12,7 @@ import { TreeService } from './tree.service';
 import { ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { TreeNodeResponseDto } from './dto/tree-response.dto';
 import { CreateNodeDto } from './dto/create-node.dto';
+import { CloneNodeDto } from './dto/clone-node.dto';
 
 @Controller('tree')
 export class TreeController {
@@ -96,6 +97,16 @@ export class TreeController {
     return this.treeService.createNode(createNodeDto);
   }
 
+  @Post('clone-node-into-node')
+  async cloneNodeIntoNode(
+    @Body() cloneNodeDto: { parentId: number; childId: number },
+  ) {
+    return this.treeService.cloneNodeIntoNode(
+      cloneNodeDto.parentId,
+      cloneNodeDto.childId,
+    );
+  }
+
   // ============================================
   // DELETE /api/tree/:id - Create a new tree node by id
   // ============================================
@@ -120,5 +131,10 @@ export class TreeController {
   })
   async deleteNodeById(@Param('id') id: number) {
     return this.treeService.deleteNodeById(id);
+  }
+
+
+  async rollbackTo(id: number) {
+    return this.treeService.rollbackDatabaseTo(id);
   }
 }

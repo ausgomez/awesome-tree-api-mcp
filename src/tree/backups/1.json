@@ -1,0 +1,102 @@
+[
+  {
+    "id": 7,
+    "label": "mammal",
+    "children": [
+      {
+        "id": 8,
+        "label": "dog",
+        "children": [
+          {
+            "id": 9,
+            "label": "bulldog",
+            "children": []
+          },
+          {
+            "id": 11,
+            "label": "boxer",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "label": "elephant",
+        "children": []
+      },
+      {
+        "id": 19,
+        "label": "cats",
+        "children": []
+      },
+      {
+        "id": 26,
+        "label": "siberian cat",
+        "children": [
+          {
+            "id": 30,
+            "label": "bird",
+            "children": [
+              {
+                "id": 31,
+                "label": "owl",
+                "children": []
+              },
+              {
+                "id": 32,
+                "label": "eagle",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "label": "bird",
+    "children": [
+      {
+        "id": 28,
+        "label": "owl",
+        "children": []
+      },
+      {
+        "id": 29,
+        "label": "eagle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "label": "root",
+    "children": []
+  },
+  {
+    "id": 15,
+    "label": "aus",
+    "children": []
+  },
+  {
+    "id": 24,
+    "label": "siberian cat",
+    "children": []
+  },
+  {
+    "id": 23,
+    "label": "root",
+    "children": []
+  },
+  {
+    "id": 22,
+    "label": "root",
+    "children": []
+  },
+  {
+    "id": 14,
+    "label": "root",
+    "children": []
+  }
+]

@@ -94,6 +94,68 @@ export class TreeService {
     }
   }
 
+  async cloneNodeIntoNode(
+    parentId: number,
+    childId: number,
+  ): Promise<TreeNodeResponseDto> {
+    // find the parentId
+    const parentNode = await this.treeNodeRepository.findOne({
+      where: { id: parentId },
+      relations: ['children'],
+    });
+
+    if (!parentNode) {
+      throw new NotFoundException(`Parent node with ID ${parentId} not found`);
+    }
+
+    // find the childId
+    const childNode = await this.treeNodeRepository.findOne({
+      where: { id: childId },
+      relations: ['children'],
+    });
+
+    if (!childNode) {
+      throw new NotFoundException(`Child node with ID ${childId} not found`);
+    }
+
+    // call a function to deep clone the child node
+    const childTreeStructure = await this.buildTreeStructure(childNode);
+    await this.createNodesFromStructure(childTreeStructure, parentId);
+
+    // return the parent node with the cloned child already included
+    return await this.buildTreeStructure(parentNode);
+  }
+
+  /**
+   * Creates new database entries from a TreeNodeResponseDto structure recursively
+   * @param treeStructure The tree structure to recreate
+   * @param newParentId The ID of the new parent for the root of this structure
+   * @returns The created node
+   */
+  private async createNodesFromStructure(
+    treeStructure: TreeNodeResponseDto,
+    newParentId?: number,
+  ): Promise<TreeNode> {
+    // Create the root node of this structure
+    const newNode = this.treeNodeRepository.create({
+      label: treeStructure.label,
+      parentId: newParentId,
+    });
+
+    const savedNode = await this.treeNodeRepository.save(newNode);
+
+    // If there are children, recursively create them
+    if (treeStructure.children && treeStructure.children.length > 0) {
+      await Promise.all(
+        treeStructure.children.map((child) =>
+          this.createNodesFromStructure(child, savedNode.id),
+        ),
+      );
+    }
+
+    return savedNode;
+  }
+
   /**
    * This creates a new node and saves it to the database
    * @param createNodeDto
@@ -162,5 +224,10 @@ export class TreeService {
         error,
       );
     }
+  }
+
+
+  async rollbackDatabaseTo(id: number) {
+    return []
   }
 }
